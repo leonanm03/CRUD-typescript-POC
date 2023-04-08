@@ -1,9 +1,9 @@
 import { ClientInput } from "protocols/protocols";
-import errors from "errors/errors";
+import errors from "../errors/errors.js";
 import {
   createClient,
   searchByEmailorCpf,
-} from "repositories/clientsRepositories";
+} from "../repositories/clientsRepositories.js";
 
 async function create(client: ClientInput): Promise<void> {
   console.log("entrei no service");

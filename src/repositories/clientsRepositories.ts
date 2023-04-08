@@ -1,6 +1,6 @@
-import db from "config/database";
-import { Client, QueryResult } from "pg";
-import { ClientInput } from "protocols/protocols";
+import db from "../config/database.js";
+import { QueryResult } from "pg";
+import { ClientInput } from "../protocols/protocols.js";
 
 export async function searchByEmailorCpf(
   email: string,

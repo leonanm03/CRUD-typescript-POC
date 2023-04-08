@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch src/server.ts"
+    "dev": "nodemon src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,6 @@
     "@types/pg": "^8.6.6",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
-    "tsx": "^3.12.6",
     "typescript": "^5.0.4"
   },
   "dependencies": {
