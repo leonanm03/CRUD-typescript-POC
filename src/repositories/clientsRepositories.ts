@@ -2,25 +2,33 @@ import db from "../config/database.js";
 import { QueryResult } from "pg";
 import { ClientInput } from "../protocols/protocols.js";
 
-export async function searchByEmailorCpf(
-  email: string,
-  cpf: number
-): Promise<QueryResult> {
-  console.log("procurei o email e o cpf");
+export async function searchByEmail(email: string): Promise<QueryResult> {
 
   const result = await db.query(
     `
         SELECT * FROM clients
-        WHERE email = $1 OR cpf = $2
+        WHERE email = $1
     `,
-    [email, cpf]
+    [email]
+  );
+
+  return result;
+}
+
+export async function searchByCpf(cpf: string): Promise<QueryResult> {
+
+  const result = await db.query(
+    `
+        SELECT * FROM clients
+        WHERE  cpf = $1
+    `,
+    [cpf]
   );
 
   return result;
 }
 
 export async function createClient(client: ClientInput): Promise<void> {
-  console.log("tentei criar o cliente");
 
   const { name, email, cpf, phone, address } = client;
   await db.query(

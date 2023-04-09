@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "module": "es2022",
-    "moduleResolution": "node",
-    "baseUrl": "src",
-    "outDir": "./dist",
+    "outDir": "dist",
     "esModuleInterop": true,
-    "strict": true
+    "module": "ES6",
+    "moduleResolution": "node"
   },
   "ts-node": {
     "esm": true

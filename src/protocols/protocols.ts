@@ -2,8 +2,8 @@ export type ClientDb = {
   id: number;
   name: string;
   email: string;
-  cpf: number;
-  phone: number;
+  cpf: string;
+  phone: string;
   address: string;
 };
 

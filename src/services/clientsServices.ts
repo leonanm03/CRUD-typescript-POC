@@ -1,22 +1,21 @@
-import { ClientInput } from "protocols/protocols";
+import { ClientInput } from "../protocols/protocols.js";
 import errors from "../errors/errors.js";
 import {
   createClient,
-  searchByEmailorCpf,
+  searchByCpf,
+  searchByEmail,
 } from "../repositories/clientsRepositories.js";
 
 async function create(client: ClientInput): Promise<void> {
-  console.log("entrei no service");
 
-  const clientAlreadyExists = await searchByEmailorCpf(
-    client.email,
-    client.cpf
-  );
+  const { rowCount: emailAlreadyExists } = await searchByEmail(client.email);
+  if (emailAlreadyExists) {
+    throw errors.conflictError(`email ${client.email} already exists`);
+  }
 
-  if (clientAlreadyExists) {
-    throw errors.conflictError(
-      `email ${client.email} or cpf ${client.cpf} already exists`
-    );
+  const { rowCount: cpfAlreadyExists } = await searchByCpf(client.cpf);
+  if (cpfAlreadyExists) {
+    throw errors.conflictError(`cpf ${client.cpf} already exists`);
   }
 
   await createClient(client);

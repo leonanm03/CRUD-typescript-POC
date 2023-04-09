@@ -5,9 +5,6 @@ const route = Router();
 
 route.post(
   "/clients",
-  () => {
-    console.log("entrei na rota");
-  },
   clientControllers.create
 );
 //   .get("/clients", clientControllers.getAll)

@@ -1,13 +1,12 @@
-import express, { json } from "express";
+import express from "express";
 import routes from "./routers/routes.js";
 import "express-async-errors";
-import cors from "cors";
 import handleErrors from "./middlewares/errorMiddleware.js";
 
 const server = express();
-server.use(json());
 
-server.use(cors());
+server.use(express.json());
+
 server.use(routes);
 server.use(handleErrors);
 

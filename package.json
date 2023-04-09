@@ -2,7 +2,7 @@
   "name": "crud-typescript-poc",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,12 +29,12 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "http-status": "^1.6.2",
     "joi": "^17.9.1",
+    "jsonwebtoken": "^9.0.0",
     "pg": "^8.10.0"
   }
 }
