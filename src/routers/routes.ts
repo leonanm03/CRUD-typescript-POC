@@ -5,13 +5,10 @@ import { createClientSchema } from "../schemas/Clients.js";
 
 const route = Router();
 
-route.post(
-  "/clients",
-  validateBody(createClientSchema),
-  clientControllers.create
-);
-//   .get("/clients", clientControllers.getAll)
-
-export { route };
+route
+  .post("/clients", validateBody(createClientSchema), clientControllers.create)
+  .get("/clients", clientControllers.getAll)
+  .put("/clients/:id", clientControllers.updateAddress)
+  .delete("/clients/:id", clientControllers.deleteClient);
 
 export default route;
