@@ -1,4 +1,4 @@
-import { ClientInput } from "../protocols/protocols.js";
+import { ClientDb, ClientInput } from "../protocols/protocols.js";
 import Joi from "joi";
 
 export const createClientSchema = Joi.object<ClientInput>({
@@ -13,4 +13,16 @@ export const createClientSchema = Joi.object<ClientInput>({
     .pattern(/^[0-9]+$/)
     .required(),
   address: Joi.string().required(),
+});
+
+export const updateClientAddressSchema = Joi.object<
+  Pick<ClientInput, "address">
+>({
+  address: Joi.string().required(),
+});
+
+export const clientIdSchema = Joi.object<Pick<ClientDb, "id">>({
+  id: Joi.string()
+    .pattern(/^[0-9]+$/)
+    .required(),
 });
