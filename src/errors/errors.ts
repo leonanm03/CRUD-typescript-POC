@@ -12,7 +12,15 @@ function notFoundError() {
   };
 }
 
+function badRequestError(message: string[]) {
+  return {
+    name: "BadRequestError",
+    message,
+  };
+}
+
 export default {
   conflictError,
   notFoundError,
+  badRequestError,
 };

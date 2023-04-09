@@ -13,6 +13,9 @@ export default function handleErrors(
   if (error.name === "NotFoundError") {
     return res.status(httpStatus.NOT_FOUND).send({ message: error.message });
   }
+  if (error.name === "BadRequestError") {
+    return res.status(httpStatus.BAD_REQUEST).send({ message: error.message });
+  }
 
   console.log(error);
 
